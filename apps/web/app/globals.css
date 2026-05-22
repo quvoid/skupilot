@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── SkuPilot Design Tokens ─────────────────────────────────────────── */
+:root {
+  --primary: #0EA5E9;
+  --primary-dark: #0284C7;
+  --secondary: #06B6D4;
+  --accent-green: #10B981;
+  --accent-amber: #F59E0B;
+  --background: #FFFFFF;
+  --surface: #F0F9FF;
+  --surface-2: #F8FAFC;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --border: #CBD5E1;
+  --danger: #EF4444;
+}
+
+/* ─── Base resets ─────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────── */
+h1 { @apply text-5xl font-bold tracking-tight text-slate-900 leading-[1.1]; }
+h2 { @apply text-4xl font-bold text-slate-900 leading-tight; }
+h3 { @apply text-2xl font-semibold text-slate-900; }
+
+/* ─── Layout utilities ────────────────────────────────────────────────── */
+.container-section { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+.section-padding    { @apply py-20 lg:py-28; }
+
+/* ─── Component utilities ─────────────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-medium px-6 py-2.5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+}
+.btn-outline {
+  @apply inline-flex items-center gap-2 border border-sky-500 text-sky-600 hover:bg-sky-50 font-medium px-6 py-2.5 rounded-lg transition-all duration-200;
+}
+.btn-ghost {
+  @apply inline-flex items-center gap-2 text-slate-600 hover:bg-slate-100 font-medium px-4 py-2 rounded-lg transition-all duration-200;
+}
+
+.card {
+  @apply bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 p-6;
+}
+
+.badge-green  { @apply inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold px-2.5 py-1 rounded-full; }
+.badge-sky    { @apply inline-flex items-center gap-1.5 bg-sky-50 text-sky-700 border border-sky-200 text-xs font-semibold px-2.5 py-1 rounded-full; }
+.badge-amber  { @apply inline-flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-xs font-semibold px-2.5 py-1 rounded-full; }
+.badge-red    { @apply inline-flex items-center gap-1.5 bg-red-50 text-red-700 border border-red-200 text-xs font-semibold px-2.5 py-1 rounded-full; }
+
+.section-label {
+  @apply inline-block text-sky-600 text-sm font-semibold uppercase tracking-widest;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent;
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.float-animation      { animation: float 4s ease-in-out infinite; }
+.fade-in-up           { animation: fadeInUp 0.5s ease forwards; }
